@@ -2,3 +2,27 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
 }
+
+#tabuleiro {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 5px;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.casa {
+    width: 100px;
+    height: 100px;
+    background: #eee;
+    font-size: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.casa:hover {
+    background: #ddd;
+}
