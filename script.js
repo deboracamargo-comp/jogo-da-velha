@@ -1,11 +1,14 @@
 // Bloco 1: elementos da página
 const casas = document.querySelectorAll(".casa");
 const mensagem = document.getElementById("mensagem");
+const placarX = document.getElementById("placar-x");
+const placarO = document.getElementById("placar-o");
 
 // Bloco 2: estado do jogo
 let tabuleiro = ["", "", "", "", "", "", "", "", ""];
 let jogadorAtual = "X";
 let jogoAcabou = false;
+let placar = { X: 0, O: 0 };
 
 // combinações vencedoras: 3 linhas, 3 colunas, 2 diagonais
 const combinacoes = [
@@ -22,6 +25,12 @@ function verificarVencedor() {
         }
     }
     return null;
+}
+
+// atualiza os números do placar na tela
+function atualizarPlacar() {
+    placarX.textContent = placar.X;
+    placarO.textContent = placar.O;
 }
 
 // Bloco 3: clique em cada casa
@@ -42,11 +51,12 @@ casas.forEach(casa => {
         const vencedor = verificarVencedor();
         if (vencedor) {
             mensagem.textContent = "Jogador " + vencedor + " venceu!";
+            placar[vencedor]++;
+            atualizarPlacar();
             jogoAcabou = true;
             return;
         }
 
-        
         // verifica empate: nenhuma casa vazia
         if (!tabuleiro.includes("")) {
             mensagem.textContent = "Deu velha! Empate.";
@@ -59,3 +69,16 @@ casas.forEach(casa => {
         mensagem.textContent = "Vez do jogador " + jogadorAtual;
     });
 });
+
+// Bloco 4: reiniciar a partida
+const botaoReiniciar = document.getElementById("reiniciar");
+
+function reiniciar() {
+    tabuleiro = ["", "", "", "", "", "", "", "", ""];
+    jogadorAtual = "X";
+    jogoAcabou = false;
+    casas.forEach(casa => casa.textContent = "");
+    mensagem.textContent = "Vez do jogador X";
+}
+
+botaoReiniciar.addEventListener("click", reiniciar);
