@@ -1,28 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Nunito", Arial, sans-serif;
     text-align: center;
+    background: #fdf2f8;
+    color: #5b4b6b;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    color: #b48ec9;
+    font-size: 2.6rem;
+    margin-bottom: 0.5rem;
+}
+
+#mensagem {
+    font-size: 1.2rem;
+    font-weight: 700;
+    background: #ffffff;
+    padding: 10px 24px;
+    border-radius: 999px;
+    box-shadow: 0 4px 12px rgba(180, 142, 201, 0.2);
 }
 
 #tabuleiro {
     display: grid;
     grid-template-columns: repeat(3, 100px);
-    gap: 5px;
+    gap: 12px;
     justify-content: center;
-    margin: 20px auto;
+    margin: 24px auto;
+    padding: 16px;
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 8px 24px rgba(180, 142, 201, 0.25);
 }
 
 .casa {
     width: 100px;
     height: 100px;
-    background: #eee;
+    background: #f3e8ff;
     font-size: 48px;
+    font-weight: 800;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 18px;
+    transition: transform 0.15s, background 0.15s;
 }
 
 .casa:hover {
-    background: #ddd;
+    background: #e9d5ff;
+    transform: scale(1.05);
+}
+
+#placar {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+#reiniciar {
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    background: #b48ec9;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 999px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(180, 142, 201, 0.35);
+    transition: background 0.15s, transform 0.15s;
+}
+
+#reiniciar:hover {
+    background: #a07bb8;
+    transform: translateY(-2px);
 }
