@@ -46,6 +46,14 @@ casas.forEach(casa => {
             return;
         }
 
+        
+        // verifica empate: nenhuma casa vazia
+        if (!tabuleiro.includes("")) {
+            mensagem.textContent = "Deu velha! Empate.";
+            jogoAcabou = true;
+            return;
+        }
+
         // troca o jogador
         jogadorAtual = jogadorAtual === "X" ? "O" : "X";
         mensagem.textContent = "Vez do jogador " + jogadorAtual;
