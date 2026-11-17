@@ -59,3 +59,16 @@ casas.forEach(casa => {
         mensagem.textContent = "Vez do jogador " + jogadorAtual;
     });
 });
+
+// Bloco 4: reiniciar a partida
+const botaoReiniciar = document.getElementById("reiniciar");
+
+function reiniciar() {
+    tabuleiro = ["", "", "", "", "", "", "", "", ""];
+    jogadorAtual = "X";
+    jogoAcabou = false;
+    casas.forEach(casa => casa.textContent = "");
+    mensagem.textContent = "Vez do jogador X";
+}
+
+botaoReiniciar.addEventListener("click", reiniciar);
